@@ -32,7 +32,7 @@ public class ItalyBot {
             sleep(1000);
             if (date.compareTo(dateCurr) < 0) {
                 sleep(500);
-                SendMessage request = new SendMessage(-675415151, "Oкошко на " + date);
+                SendMessage request = new SendMessage(-675415151, "Oкошко на " + sdf.format(date));
                 SendResponse sendResponse = bot.execute(request);
                 break;
             }
