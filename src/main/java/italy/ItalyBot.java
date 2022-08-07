@@ -19,7 +19,7 @@ public class ItalyBot {
     }
     static void findWindow(TelegramBot bot) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date dateCurr = sdf.parse("19.10.2022");
+        Date dateCurr = sdf.parse("19.09.2022");
         Date date;
         Configuration.holdBrowserOpen = true;
         open("https://italy-vms.ru/autoform/?lang=ru");
