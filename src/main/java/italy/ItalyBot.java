@@ -33,7 +33,6 @@ public class ItalyBot {
                 sleep(500);
                 SendMessage request = new SendMessage(-675415151, "Oкошко на " + sdf.format(date));
                 bot.execute(request);
-                break;
             }
         }
     }
