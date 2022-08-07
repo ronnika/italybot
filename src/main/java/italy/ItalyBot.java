@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
-import com.pengrad.telegrambot.response.SendResponse;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +19,7 @@ public class ItalyBot {
     }
     static void findWindow(TelegramBot bot) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date dateCurr = sdf.parse("19.09.2022");
+        Date dateCurr = sdf.parse("19.10.2022");
         Date date;
         Configuration.holdBrowserOpen = true;
         open("https://italy-vms.ru/autoform/?lang=ru");
@@ -33,7 +32,7 @@ public class ItalyBot {
             if (date.compareTo(dateCurr) < 0) {
                 sleep(500);
                 SendMessage request = new SendMessage(-675415151, "Oкошко на " + sdf.format(date));
-                SendResponse sendResponse = bot.execute(request);
+                bot.execute(request);
                 break;
             }
         }
