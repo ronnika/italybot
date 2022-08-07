@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.pengrad:java-telegram-bot-api:6.1.0'
+    implementation 'com.codeborne:selenide:6.6.6'
+}
+
+test {
+    useJUnitPlatform()
+}
