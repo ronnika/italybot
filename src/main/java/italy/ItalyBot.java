@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class ItalyBot {
 
     public static void main(String[] args) throws ParseException {
-        TelegramBot bot = new TelegramBot("token");
+        TelegramBot bot = new TelegramBot("5510060298:AAHkpXOLcnEbaw4-92DnE6JluoNwdbEUiyw");
         findWindow(bot);
     }
 
@@ -37,9 +37,8 @@ public class ItalyBot {
                 $("[value='Назначить другую дату'").click();
                 $("#appdate").setValue(sdf.format(date));
                 sleep(500);
-                $("#apptime").selectOptionContainingText("00");
+                $("#apptime").selectOption(0);
                 $("[value='Назначить другую дату ▷'").click();
-                break;
             }
         }
     }
