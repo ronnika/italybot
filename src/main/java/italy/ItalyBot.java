@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class ItalyBot {
 
     public static void main(String[] args) throws ParseException {
-        TelegramBot bot = new TelegramBot("5510060298:AAHkpXOLcnEbaw4-92DnE6JluoNwdbEUiyw");
+        TelegramBot bot = new TelegramBot("");
         findWindow(bot);
     }
     static void findWindow(TelegramBot bot) throws ParseException {
