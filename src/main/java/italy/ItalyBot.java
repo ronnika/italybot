@@ -1,7 +1,6 @@
 package italy;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
 
@@ -18,16 +17,11 @@ public class ItalyBot {
         findWindow(bot);
     }
 
-    static void  autoReg() {
-        open("https://italy-vms.ru/autoform/?t=thnugte3he-2999325-y8kub0xkgoqngi4nn709gxzvdnv9f2a2hfgqoh3e7u1g3&lang=ru");
-        $("button[value='Назначить другую дату").click();
-    }
     static void findWindow(TelegramBot bot) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date dateCurr = sdf.parse("22.08.2022");
         Date dateStart = sdf.parse("11.08.2022");
         Date date;
-        boolean isDateSent = false;
         Configuration.holdBrowserOpen = true;
         while (true) {
             open("https://italy-vms.ru/autoform/?lang=ru");
