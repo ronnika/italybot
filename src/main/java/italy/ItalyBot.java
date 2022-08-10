@@ -34,14 +34,6 @@ public class ItalyBot {
                 sleep(500);
                 SendMessage request = new SendMessage(-675415151, "Oкошко на " + sdf.format(date));
                 bot.execute(request);
-                switchTo().newWindow(WindowType.TAB);
-                open("https://italy-vms.ru/autoform/?t=thnugte3he-2999325-y8kub0xkgoqngi4nn709gxzvdnv9f2a2hfgqoh3e7u1g3&lang=ru");
-                $("[value='Назначить другую дату'").click();
-                $("#appdate").setValue(sdf.format(date)).pressEnter();
-                sleep(500);
-                $("#apptime").selectOption(0);
-                $("[value='Назначить другую дату ▷'").click();
-                switchTo().defaultContent();
             }
         }
     }
