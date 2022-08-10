@@ -3,6 +3,7 @@ package italy;
 import com.codeborne.selenide.Configuration;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
+import org.openqa.selenium.WindowType;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,13 +14,13 @@ import static com.codeborne.selenide.Selenide.*;
 public class ItalyBot {
 
     public static void main(String[] args) throws ParseException {
-        TelegramBot bot = new TelegramBot("5510060298:AAHkpXOLcnEbaw4-92DnE6JluoNwdbEUiyw");
+        TelegramBot bot = new TelegramBot(TOKEN);
         findWindow(bot);
     }
 
     static void findWindow(TelegramBot bot) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date dateCurr = sdf.parse("22.08.2022");
+        Date dateCurr = sdf.parse("15.08.2022");
         Date dateStart = sdf.parse("11.08.2022");
         Date date;
         Configuration.holdBrowserOpen = true;
@@ -33,12 +34,14 @@ public class ItalyBot {
                 sleep(500);
                 SendMessage request = new SendMessage(-675415151, "Oкошко на " + sdf.format(date));
                 bot.execute(request);
+                switchTo().newWindow(WindowType.TAB);
                 open("https://italy-vms.ru/autoform/?t=thnugte3he-2999325-y8kub0xkgoqngi4nn709gxzvdnv9f2a2hfgqoh3e7u1g3&lang=ru");
                 $("[value='Назначить другую дату'").click();
-                $("#appdate").setValue(sdf.format(date));
+                $("#appdate").setValue(sdf.format(date)).pressEnter();
                 sleep(500);
                 $("#apptime").selectOption(0);
                 $("[value='Назначить другую дату ▷'").click();
+                switchTo().defaultContent();
             }
         }
     }
